@@ -6,16 +6,18 @@ import {
   VStack,
   Icon,
   Image,
-  useColorModeValue
+  useColorModeValue,
+  View
 } from 'native-base'
 import { Feather } from '@expo/vector-icons'
-// import AnimatedColorBox from '../components/animated-color-box'
-// import Navbar from '../components/navbar'
-// import Masthead from '../components/masthead'
-// import LinkButton from '../components/link-button'
+import AnimatedColorBox from '../components/animated-color-box'
+import Navbar from '../components/navbar'
+import Masthead from '../components/masthead'
+import LinkButton from '../components/link-button'
 
 const AboutScreen = () => {
   return (
+
     <AnimatedColorBox
       flex={1}
       bg={useColorModeValue('warmGray.50', 'warmGray.900')}
@@ -37,24 +39,23 @@ const AboutScreen = () => {
       >
         <VStack flex={1} space={4}>
           <Box alignItems="center">
-            <Image
+            {/* <Image
               source={require('../assets/takuya.jpg')}
               borderRadius="full"
               resizeMode="cover"
               w={120}
               h={120}
               alt="author"
-            />
+            /> */}
           </Box>
           <Text fontSize="md" w="full">
-            This is a React Native tutorial built in the YouTube channel called
-            DevAsLife.
+            This is a React Native tutorial built in the YouTube .
           </Text>
           <LinkButton
             colorScheme="red"
             size="lg"
             borderRadius="full"
-            href="https://www.youtube.com/devaslife"
+            href="https://www.youtube.com"
             leftIcon={
               <Icon as={Feather} name="youtube" size="sm" opacity={0.5} />
             }
@@ -65,27 +66,27 @@ const AboutScreen = () => {
             colorScheme={useColorModeValue('blue', 'darkBlue')}
             size="lg"
             borderRadius="full"
-            href="https://twitter.com/inkdrop_app"
+            href="https://twitter.com"
             leftIcon={
               <Icon as={Feather} name="twitter" size="sm" opacity={0.5} />
             }
           >
-            @inkdrop_app
+            twitter
           </LinkButton>
           <Text fontSize="md" w="full">
-            Are you looking for a Markdown note-taking app? Check out my app
-            called Inkdrop!
+            Are you looking for a Markdown note-taking app? Check out my app.
+           
           </Text>
           <LinkButton
             colorScheme="purple"
             size="lg"
             borderRadius="full"
-            href="https://www.inkdrop.app/"
+            href="https://www.facebook.com/"
             leftIcon={
               <Icon as={Feather} name="external-link" size="sm" opacity={0.5} />
             }
           >
-            https://www.inkdrop.app/
+           facebook
           </LinkButton>
         </VStack>
       </ScrollView>

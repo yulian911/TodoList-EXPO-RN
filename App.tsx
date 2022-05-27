@@ -1,12 +1,15 @@
 
 import AppContainer from './src/components/app-container';
 import Navigator from './src'
+import { AllProvider } from './src/Context/allContext';
 
 export default function App() {
   return (
-    <AppContainer>
-        <Navigator/>
-    </AppContainer>
+    <AllProvider>
+      <AppContainer>
+          <Navigator/>
+      </AppContainer>
+    </AllProvider>
   );
 }
 

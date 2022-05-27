@@ -4,11 +4,38 @@ import MainScreen from './screens/main-screen'
 
 import Sidebar from './components/sidebar'
 import AboutScreen from './screens/about-screen'
+import Login from './screens/Login'
+import { createStackNavigator } from '@react-navigation/stack'
+import { useAll } from './Context/allContext'
 
 const Drawer = createDrawerNavigator()
+const HomeStack=createStackNavigator()
+
+
+const HomeScreen = () => {
+ 
+
+  return (
+    <HomeStack.Navigator screenOptions={{headerShown:false}} initialRouteName="Home">
+      <HomeStack.Screen name="Main"
+       component={MainScreen}
+  
+       />
+      <HomeStack.Screen name="About"
+       component={AboutScreen}
+  
+       />
+  
+    </HomeStack.Navigator>
+  );
+};
+
+
 
 const App = () => {
+  const {user} =useAll()
   return (
+  
     <Drawer.Navigator
       initialRouteName="Main"
       drawerContent={props => <Sidebar {...props} />}
@@ -18,9 +45,12 @@ const App = () => {
         overlayColor: '#00000000'
       }}
     >
-      <Drawer.Screen name="Main" component={MainScreen} />
-      <Drawer.Screen name="About" component={AboutScreen} />
+     {user?
+      (<Drawer.Screen name="HomeScreen" component={HomeScreen}/>):
+      ( <Drawer.Screen name="Login" component={Login}/>)
+      }
     </Drawer.Navigator>
+  
   )
 }
 
